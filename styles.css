@@ -1,0 +1,49 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 10px; /* Padding to ensure some space around the edges on smaller screens */
+}
+
+.container {
+    text-align: center;
+    background-color: #1e1e1e; /* Slightly lighter dark shade for the container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Stronger shadow for depth */
+    width: 100%; /* Makes the container width flexible */
+    max-width: 600px; /* Maximum width of the container */
+}
+
+h1 {
+    color: #76c7c0; /* A soft teal color for headings */
+    font-size: 24px; /* Adjusts the font size for better mobile readability */
+}
+
+.timetable {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow around the image for better visibility */
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 20px; /* Smaller font size on smaller devices */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px; /* Slightly more padding on very small devices */
+    }
+
+    h1 {
+        font-size: 18px; /* Even smaller font size for very small devices */
+    }
+}
