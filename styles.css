@@ -1,13 +1,13 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #121212; /* Dark background */
-    color: #e0e0e0; /* Light text */
+    color: #e0e0e0; /* Light text for readability */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    padding: 10px; /* Padding to ensure some space around the edges on smaller screens */
+    padding: 10px;
 }
 
 .container {
@@ -15,35 +15,53 @@ body {
     background-color: #1e1e1e; /* Slightly lighter dark shade for the container */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Stronger shadow for depth */
-    width: 100%; /* Makes the container width flexible */
-    max-width: 600px; /* Maximum width of the container */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 600px;
 }
 
 h1 {
     color: #76c7c0; /* A soft teal color for headings */
-    font-size: 24px; /* Adjusts the font size for better mobile readability */
+    font-size: 24px;
 }
 
-.timetable {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow around the image for better visibility */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    color: #e0e0e0;
+}
+
+th, td {
+    border: 1px solid #76c7c0; /* Teal borders for a pop of color */
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #2a2a2a; /* Darker shade for header */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #1e1e1e;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #121212;
 }
 
 @media (max-width: 768px) {
     h1 {
-        font-size: 20px; /* Smaller font size on smaller devices */
+        font-size: 20px;
     }
 }
 
 @media (max-width: 480px) {
     .container {
-        padding: 15px; /* Slightly more padding on very small devices */
+        padding: 15px;
     }
 
     h1 {
-        font-size: 18px; /* Even smaller font size for very small devices */
+        font-size: 18px;
     }
 }
