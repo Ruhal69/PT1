@@ -17,12 +17,14 @@ body {
     border-radius: 8px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
     width: 100%;
-    max-width: 600px;
+    max-width: 800px; /* Adjusted width for better readability */
+    overflow-x: auto; /* Enable horizontal scrolling on smaller screens */
 }
 
 h1 {
     color: #76c7c0; /* A soft teal color for headings */
     font-size: 24px;
+    margin-bottom: 20px; /* Space below heading */
 }
 
 table {
@@ -34,8 +36,8 @@ table {
 
 th, td {
     border: 1px solid #76c7c0; /* Teal borders for a pop of color */
-    padding: 8px;
-    text-align: left;
+    padding: 12px; /* Increased padding for better spacing */
+    text-align: center;
 }
 
 th {
@@ -63,5 +65,9 @@ tbody tr:nth-child(even) {
 
     h1 {
         font-size: 18px;
+    }
+
+    table {
+        font-size: 14px; /* Adjusted font size for smaller screens */
     }
 }
