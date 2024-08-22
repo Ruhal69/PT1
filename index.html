@@ -61,6 +61,26 @@
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-20px); }
       }
+      .link-button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    text-align: center;
+    color: #1a1a1a;
+    background-color: #00ffff;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.link-button:hover {
+    background-color: #ff00ff;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
     </style>
     </head>
     <body>
@@ -147,6 +167,7 @@
           <td>1 hour daily</td>
         </tr>
       </table>
+      <a href="https://ruhal69.github.io/d/" class="link-button">Days Tracker</a>
     </div>
     
     <div class="floating-object" style="top: 10%; left: 5%;">📚</div>
