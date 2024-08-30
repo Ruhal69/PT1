@@ -1,252 +1,304 @@
-<html><head><base href="https://websim-creation-engine.ai/">
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Timetable</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #1a1a1a;
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        overflow: hidden;
-      }
-      .container {
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-        position: relative;
-        z-index: 1;
-      }
-      h1 {
-        text-align: center;
-        color: #00ffff;
-        text-shadow: 0 0 10px #00ffff;
-      }
-      table {
-        border-collapse: collapse;
-        width: 100%;
-      }
-      th, td {
-        border: 1px solid #00ffff;
-        padding: 10px;
-        text-align: left;
-      }
-      th {
-        background-color: #00ffff;
-        color: #1a1a1a;
-      }
-      .subject {
-        font-weight: bold;
-        color: #ff00ff;
-      }
-      #particles-js {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-      }
-      .floating-object {
-        position: absolute;
-        font-size: 2em;
-        animation: float 5s infinite ease-in-out;
-      }
-      @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-20px); }
-      }
-      .link-button {
-    display: block;
-    width: 200px;
-    margin: 20px auto;
-    padding: 10px 20px;
-    text-align: center;
-    color: #1a1a1a;
-    background-color: #00ffff;
-    text-decoration: none;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-    transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.link-button:hover {
-    background-color: #ff00ff;
-    color: #fff;
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
-}
-
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            text-align: center;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #00ffff;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #00ffff;
+            color: #1a1a1a;
+        }
+        .subject {
+            font-weight: bold;
+            color: #ff00ff;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+        }
+        .checkbox {
+            margin-right: 10px;
+            accent-color: #00ffff; /* Glowing color for checkbox */
+            width: 24px; /* Increase checkbox size */
+            height: 24px; /* Increase checkbox size */
+        }
+        .checkbox:checked::after {
+            content: '✔';
+            color: #00ffff;
+            font-size: 1.2em;
+        }
+        .checkbox:disabled {
+            opacity: 0.5;
+        }
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .floating-object {
+            position: absolute;
+            font-size: 2em;
+            animation: float 5s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .link-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px 20px;
+            text-align: center;
+            color: #1a1a1a;
+            background-color: #00ffff;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .link-button:hover {
+            background-color: #ff00ff;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+        }
     </style>
-    </head>
-    <body>
+</head>
+<body>
     <div id="particles-js"></div>
     <div class="container">
-      <h1>My Study Timetable</h1>
-      <table>
-        <tr>
-          <th>Dates</th>
-          <th>Subject</th>
-          <th>Maths</th>
-          <th>Revision</th>
-        </tr>
-        <tr>
-          <td>July 28-30</td>
-          <td class="subject">Politics ✓</td>
-          <td>1 hour daily</td>
-          <td>1 hour daily</td>
-        </tr>
-        <tr>
-          <td>July 31 - August 2</td>
-          <td class="subject">Geography ✓</td>
-          <td>1 hour daily</td>
-          <td>1 hour daily</td>
-        </tr>
-        <tr>
-          <td>August 3-5</td>
-          <td class="subject">Physics ✓</td>
-          <td>1 hour daily</td>
-          <td>1 hour daily</td>
-        </tr>
-        <tr>
-          <td>August 6-8</td>
-          <td class="subject">Revise ✓</td>
-          <td>1 hour daily</td>
-          <td>1 hour daily</td>
-        </tr>
-        <tr>
-          <td>August 9-11</td>
-          <td class="subject">Chemistry</td>
-          <td>1 hour daily</td>
-          <td>1 hour daily</td>
-        </tr>
-        <tr>
-          <td>August 12-14</td>
-          <td class="subject">History</td>
-          <td>1 hour daily</td>
-          <td>1 hour daily</td>
-        </tr>
-        <tr>
-          <td>August 15-17</td>
-          <td class="subject">Biology</td>
-          <td>1 hour daily</td>
-          <td>1 hour daily</td>
-        </tr>
-        <tr>
-          <td>August 18-20</td>
-          <td class="subject">Revise</td>
-          <td>1 hour daily</td>
-          <td>1 hour daily</td>
-        </tr>
-        <tr>
-          <td>August 21-23</td>
-          <td class="subject">Economy</td>
-          <td>1 hour daily</td>
-          <td>1 hour daily</td>
-        </tr>
-        <tr>
-          <td>August 24-26</td>
-          <td class="subject">Marathi</td>
-          <td>1 hour daily</td>
-          <td>1 hour daily</td>
-        </tr>
-        <tr>
-          <td>August 27-29</td>
-          <td class="subject">English</td>
-          <td>1 hour daily</td>
-          <td>1 hour daily</td>
-        </tr>
-        <tr>
-          <td>August 30-31</td>
-          <td class="subject">Final Recap</td>
-          <td>1 hour daily</td>
-          <td>1 hour daily</td>
-        </tr>
-      </table>
-      <a href="https://ruhal69.github.io/d/" class="link-button">Days Tracker</a>
+        <h1>My Study Timetable</h1>
+        <table>
+            <tr>
+                <th>Dates</th>
+                <th>Subject</th>
+                <th>Study Plan</th>
+                <th>Revision</th>
+            </tr>
+            <tr>
+                <td>August 31 - September 1</td>
+                <td class="subject">English</td>
+                <td>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="english" class="checkbox">
+                    </div>
+                </td>
+                <td>1 hour daily</td>
+            </tr>
+            <tr>
+                <td>September 2-3</td>
+                <td class="subject">Biology</td>
+                <td>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="biology" class="checkbox">
+                    </div>
+                </td>
+                <td>1 hour daily</td>
+            </tr>
+            <tr>
+                <td>September 4-5</td>
+                <td class="subject">Chemistry</td>
+                <td>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="chemistry" class="checkbox">
+                    </div>
+                </td>
+                <td>1 hour daily</td>
+            </tr>
+            <tr>
+                <td>September 6-7</td>
+                <td class="subject">History</td>
+                <td>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="history" class="checkbox">
+                    </div>
+                </td>
+                <td>1 hour daily</td>
+            </tr>
+            <tr>
+                <td>September 8-9</td>
+                <td class="subject">Geography</td>
+                <td>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="geography" class="checkbox">
+                    </div>
+                </td>
+                <td>1 hour daily</td>
+            </tr>
+            <tr>
+                <td>September 10-11</td>
+                <td class="subject">Marathi</td>
+                <td>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="marathi" class="checkbox">
+                    </div>
+                </td>
+                <td>1 hour daily</td>
+            </tr>
+            <tr>
+                <td>September 12-13</td>
+                <td class="subject">Economics</td>
+                <td>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="economics" class="checkbox">
+                    </div>
+                </td>
+                <td>1 hour daily</td>
+            </tr>
+            <tr>
+                <td>September 14-15</td>
+                <td class="subject">Physics</td>
+                <td>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="physics" class="checkbox">
+                    </div>
+                </td>
+                <td>1 hour daily</td>
+            </tr>
+            <tr>
+                <td>September 16-17</td>
+                <td class="subject">Politics</td>
+                <td>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="politics" class="checkbox">
+                    </div>
+                </td>
+                <td>1 hour daily</td>
+            </tr>
+        </table>
+        <a href="https://ruhal69.github.io/d/" class="link-button">Days Tracker</a>
     </div>
-    
+
     <div class="floating-object" style="top: 10%; left: 5%;">📚</div>
     <div class="floating-object" style="top: 20%; right: 5%;">🔬</div>
     <div class="floating-object" style="bottom: 15%; left: 10%;">🖊️</div>
     <div class="floating-object" style="bottom: 25%; right: 10%;">🧠</div>
-    
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": {
-          "value": 80,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
-        },
-        "color": {
-          "value": ["#ff00ff", "#00ffff", "#ffff00"]
-        },
-        "shape": {
-          "type": "circle"
-        },
-        "opacity": {
-          "value": 0.5,
-          "random": false,
-          "anim": {
-            "enable": false
-          }
-        },
-        "size": {
-          "value": 3,
-          "random": true,
-          "anim": {
-            "enable": false
-          }
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#00ffff",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 2,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false,
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "repulse"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "push"
-          },
-          "resize": true
-        },
-        "modes": {
-          "repulse": {
-            "distance": 100,
-            "duration": 0.4
-          },
-          "push": {
-            "particles_nb": 4
-          }
-        }
-      },
-      "retina_detect": true
-    });
+        // Load saved checkbox states from localStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.checkbox').forEach(checkbox => {
+                const isChecked = localStorage.getItem(checkbox.id) === 'true';
+                checkbox.checked = isChecked;
+            });
+        });
+
+        // Save checkbox state to localStorage on change
+        document.querySelectorAll('.checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                localStorage.setItem(checkbox.id, checkbox.checked);
+            });
+        });
+
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": ["#ff00ff", "#00ffff", "#ffff00"]
+                },
+                "shape": {
+                    "type": "circle"
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00ffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "repulse": {
+                        "distance": 100,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
     </script>
-    </body></html>
+</body>
+</html>
