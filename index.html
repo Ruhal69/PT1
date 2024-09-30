@@ -4,265 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Timetable</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-        }
-        .container {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-            position: relative;
-            z-index: 1;
-        }
-        h1 {
-            text-align: center;
-            color: #00ffff;
-            text-shadow: 0 0 10px #00ffff;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid #00ffff;
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #00ffff;
-            color: #1a1a1a;
-        }
-        .subject {
-            font-weight: bold;
-            color: #ff00ff;
-        }
-        .checkbox-container {
-            display: flex;
-            align-items: center;
-        }
-        .checkbox {
-            margin-right: 10px;
-            accent-color: #00ffff; /* Glowing color for checkbox */
-            width: 24px; /* Increase checkbox size */
-            height: 24px; /* Increase checkbox size */
-        }
-        .checkbox:checked::after {
-            content: '✔';
-            color: #00ffff;
-            font-size: 1.2em;
-        }
-        .checkbox:disabled {
-            opacity: 0.5;
-        }
-        #particles-js {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-        .floating-object {
-            position: absolute;
-            font-size: 2em;
-            animation: float 5s infinite ease-in-out;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-        .link-button {
-            display: block;
-            width: 200px;
-            margin: 20px auto;
-            padding: 10px 20px;
-            text-align: center;
-            color: #1a1a1a;
-            background-color: #00ffff;
-            text-decoration: none;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-        .link-button:hover {
-            background-color: #ff00ff;
-            color: #fff;
-            box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="particles-js"></div>
     <div class="container">
         <h1>My Study Timetable</h1>
-        <table>
-            <tr>
-                <th>Subject</th>
-                <th>Study Plan</th>
-            </tr>
-            <tr>
-                <td class="subject">Triangles (Ch 6)</td>
-                <td>
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="triangles" class="checkbox">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="subject">Polynomials (Ch 2)</td>
-                <td>
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="polynomials" class="checkbox">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="subject">Introduction to Trigonometry (Ch 8)</td>
-                <td>
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="trigonometry" class="checkbox">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="subject">Pairs of Linear Equations in Two Variables (Ch 3)</td>
-                <td>
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="linear-equations" class="checkbox">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="subject">Some Applications of Trigonometry (Ch 9)</td>
-                <td>
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="applications-trigonometry" class="checkbox">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="subject">Real Numbers (Ch 1)</td>
-                <td>
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="real-numbers" class="checkbox">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="subject">Quadratic Equations (Ch 4)</td>
-                <td>
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="quadratic-equations" class="checkbox">
-                    </div>
-                </td>
-            </tr>
-        </table>        
-        <a href="https://ruhal69.github.io/d/" class="link-button">Days Tracker</a>
+
+        <!-- Writing Skills Section -->
+        <div class="section left">
+            <h2>Writing Skills</h2>
+            <table>
+                <tr>
+                    <th>Subject</th>
+                    <th>Study Plan</th>
+                </tr>
+                <tr>
+                    <td class="subject">Letter of Complaints and Inquiry</td>
+                    <td>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="complaints-inquiry" class="checkbox">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="subject">Analytical Paragraph</td>
+                    <td>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="analytical-paragraph" class="checkbox">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Grammar Section -->
+        <div class="section right">
+            <h2>Grammar</h2>
+            <table>
+                <tr>
+                    <th>Subject</th>
+                    <th>Study Plan</th>
+                </tr>
+                <tr>
+                    <td class="subject">Determiners</td>
+                    <td>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="determiners" class="checkbox">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="subject">Tenses</td>
+                    <td>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="tenses" class="checkbox">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="subject">Modals</td>
+                    <td>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="modals" class="checkbox">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Literature Prose Section -->
+        <div class="section left">
+            <h2>Literature - Prose</h2>
+            <table>
+                <tr>
+                    <th>Subject</th>
+                    <th>Study Plan</th>
+                </tr>
+                <tr>
+                    <td class="subject">A Letter to God</td>
+                    <td>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="letter-to-god" class="checkbox">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="subject">Nelson Mandela – Long Road to Freedom</td>
+                    <td>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="nelson-mandela" class="checkbox">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Literature Poetry Section -->
+        <div class="section right">
+            <h2>Literature - Poetry</h2>
+            <table>
+                <tr>
+                    <th>Subject</th>
+                    <th>Study Plan</th>
+                </tr>
+                <tr>
+                    <td class="subject">Dust of Snow</td>
+                    <td>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="dust-of-snow" class="checkbox">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="subject">Fire and Ice</td>
+                    <td>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="fire-and-ice" class="checkbox">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Supplementary Reading Section -->
+        <div class="section left">
+            <h2>Supplementary Reading</h2>
+            <table>
+                <tr>
+                    <th>Subject</th>
+                    <th>Study Plan</th>
+                </tr>
+                <tr>
+                    <td class="subject">A Triumph of Surgery</td>
+                    <td>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="triumph-surgery" class="checkbox">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="subject">The Thief’s Story</td>
+                    <td>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="thiefs-story" class="checkbox">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
-
-    <div class="floating-object" style="top: 10%; left: 5%;">📚</div>
-    <div class="floating-object" style="top: 20%; right: 5%;">🔬</div>
-    <div class="floating-object" style="bottom: 15%; left: 10%;">🖊️</div>
-    <div class="floating-object" style="bottom: 25%; right: 10%;">🧠</div>
-
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        // Load saved checkbox states from localStorage
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.checkbox').forEach(checkbox => {
-                const isChecked = localStorage.getItem(checkbox.id) === 'true';
-                checkbox.checked = isChecked;
-            });
-        });
-
-        // Save checkbox state to localStorage on change
-        document.querySelectorAll('.checkbox').forEach(checkbox => {
-            checkbox.addEventListener('change', () => {
-                localStorage.setItem(checkbox.id, checkbox.checked);
-            });
-        });
-
-        particlesJS("particles-js", {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": ["#ff00ff", "#00ffff", "#ffff00"]
-                },
-                "shape": {
-                    "type": "circle"
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#00ffff",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 2,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "repulse": {
-                        "distance": 100,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    }
-                }
-            },
-            "retina_detect": true
-        });
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
